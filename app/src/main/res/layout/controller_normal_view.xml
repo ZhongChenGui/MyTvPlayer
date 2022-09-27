@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--    Top 区域     -->
+
+    <RelativeLayout
+        android:id="@+id/normal_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#66000000"
+            android:padding="50px">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="我是标题"
+                android:textColor="@color/white"
+                android:textSize="40px" />
+
+            <TextView
+                android:id="@+id/action_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="50px"
+                android:layout_toLeftOf="@id/time"
+                android:text="我是提示用户操作的信息"
+                android:textColor="@color/white"
+                android:textSize="40px" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="22:12"
+                android:textColor="@color/white"
+                android:textSize="40px" />
+
+        </RelativeLayout>
+
+
+        <!--    底部显示区域     -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#66000000"
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="50px"
+            android:paddingRight="50px"
+            >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/action_tips_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50px" />
+
+            <LinearLayout
+                android:id="@+id/seek_bar_container"
+                android:layout_width="match_parent"
+                android:clipToPadding="false"
+                android:clipChildren="false"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="48px"
+                    android:layout_height="48px"
+                    android:layout_gravity="bottom"
+                    android:layout_marginRight="20px"
+                    android:src="@drawable/play" />
+
+                <TextView
+                    android:id="@+id/position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginRight="20px"
+                    android:text="00:00"
+                    android:textColor="@color/white" />
+
+                <com.learning.mytvplayer.CostomSeekBar
+                    android:id="@+id/seek"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/total_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="20px"
+                    android:text="00:00"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/down_tip"
+                android:layout_width="48px"
+                android:layout_height="48px"
+                android:layout_gravity="center"
+                android:layout_marginTop="20px"
+                android:src="@drawable/down" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!--    缓冲区域    -->
+    <LinearLayout
+        android:id="@+id/buff_tips"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#66000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="正在缓冲......."
+            android:textColor="@color/white"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/buff_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 kb/s"
+            android:textColor="@color/white"
+            android:textSize="40px" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

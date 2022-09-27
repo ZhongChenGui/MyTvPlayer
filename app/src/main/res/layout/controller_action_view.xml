@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!--    <androidx.leanback.widget.HorizontalGridView-->
+    <!--        android:id="@+id/action_content"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_above="@+id/action_title" />-->
+
+    <LinearLayout
+        android:id="@+id/action_parent"
+        android:paddingTop="100px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/controller_action_bg"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/action_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/action_title" />
+
+        <androidx.leanback.widget.HorizontalGridView
+            android:id="@+id/action_title"
+            android:layout_width="match_parent"
+            android:layout_height="100px"
+            android:paddingLeft="60px"
+            android:layout_above="@+id/tip_seek"
+            android:layout_marginTop="30px" />
+
+        <android.widget.SeekBar
+            android:id="@+id/tip_seek"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:layout_alignParentBottom="true"
+            android:focusable="false"
+            android:paddingLeft="100px"
+            android:progress="20"
+            android:thumb="@null"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </LinearLayout>
+
+</RelativeLayout>
